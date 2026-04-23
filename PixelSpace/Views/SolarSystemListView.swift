@@ -1,0 +1,39 @@
+//
+//  SolarSystemListView.swift
+//  PixelSpace
+//
+//  Created by apprenant76 on 23/04/2026.
+//
+
+import SwiftUI
+
+struct SolarSystemListView: View {
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading) {
+                Text(
+                    "Explore le système solaire, touche un astre pour en savoir plus."
+                )
+                .foregroundStyle(Color(hex: 0x999999))
+                .fontWeight(.regular)
+                .font(.system(size: 20))
+                .frame(width: 257, height: 72)
+                .padding(.horizontal, 6)
+                
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing: 64) {
+                        ForEach(planets) { planet in
+                            PlanetCard(planet: planet)
+                        }
+                    }
+                    .padding(.horizontal, 64)
+                }
+            }
+            .navigationTitle("Pixel Space")
+        }
+    }
+}
+
+#Preview {
+    SolarSystemListView()
+}
