@@ -23,6 +23,7 @@ struct PlanetCard: View {
                     Text(planet.summary)
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.black)
+                        .multilineTextAlignment(.leading)
                 }
                 .frame(width: 186, height: 292)
                 .padding(16)
