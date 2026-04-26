@@ -72,5 +72,5 @@ struct AstronautDetailView: View {
 }
 
 #Preview {
-    AstronautDetailView(astronaut: astro_Scott)
+    AstronautDetailView(astronaut: Array(AstronautService.all.values)[0])
 }

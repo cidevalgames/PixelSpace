@@ -11,40 +11,45 @@ struct RocketDetailView: View {
     var rocketShip: RocketShip
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                VStack(alignment: .leading, spacing: 16) {
-                    Image(rocketShip.image)
-                        .resizable()
-                        .frame(width: 27, height: 132)
-                        .rotationEffect(.degrees(90))
-                        .frame(width: 132, height: 27)
-                        .foregroundStyle(Color(uiColor: .systemBackground))
-                    
-                    Text(rocketShip.name)
-                        .foregroundStyle(Color(uiColor: .systemBackground))
-                        .font(.callout.bold())
-                    
-                    Text(rocketShip.description)
-                        .foregroundStyle(Color(uiColor: .systemBackground))
-                        .font(.caption)
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
-                .background(.primary)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+        VStack(spacing: 24) {
+            VStack(alignment: .leading, spacing: 16) {
+                Image(rocketShip.image)
+                    .resizable()
+                    .frame(width: 27, height: 132)
+                    .rotationEffect(.degrees(90))
+                    .frame(width: 132, height: 27)
+                    .foregroundStyle(Color(uiColor: .systemBackground))
                 
-                ForEach(rocketShip.astronauts) { astronaut in
+                Text(rocketShip.name)
+                    .foregroundStyle(Color(uiColor: .systemBackground))
+                    .font(.callout.bold())
+                
+                Text(rocketShip.description)
+                    .foregroundStyle(Color(uiColor: .systemBackground))
+                    .font(.caption)
+            }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 16)
+            .background(.primary)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            
+            ForEach(rocketShip.astronauts) { astronaut in
+                NavigationLink {
+                    AstronautDetailView(astronaut: astronaut)
+                } label: {
                     AstronautCard(astronaut: astronaut)
                 }
-                
-                Spacer()
+                .buttonStyle(.plain)
             }
+            
+            Spacer()
         }
         .padding(.horizontal, 32)
     }
 }
 
 #Preview {
-    RocketDetailView(rocketShip: rocketShips[2])
+    NavigationStack {
+        RocketDetailView(rocketShip: RocketShipService.all[0])
+    }
 }

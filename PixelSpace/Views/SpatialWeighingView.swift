@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct SpatialWeighingView: View {
-    @State var weight: Double = 0.0
-    @State var selectedPlanet: Planet = planets[1]
-    
-    var spatialWeight: Double {
-        return weight * (selectedPlanet.gravity / 9.81)
-    }
+    @State var viewModel: SpatialWeighingViewModel = SpatialWeighingViewModel()
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -33,19 +28,19 @@ struct SpatialWeighingView: View {
                     .font(.title3)
                     .frame(width: 290, height: 72)
                     
-                    TextField("Entre ton poids en kg...", value: $weight, format: .number)
+                    TextField("Entre ton poids en kg...", value: $viewModel.userWeight, format: .number)
                         .frame(height: 64)
                         .padding(.horizontal, 8)
                         .background(RoundedRectangle(cornerRadius: 12).stroke(.primary, lineWidth: 1))
                         .keyboardType(.decimalPad)
                         .font(.title3.bold())
                     
-                    Text("Ton poids sur \(selectedPlanet.name) :")
+                    Text("Ton poids sur \(viewModel.selectedPlanet.name) :")
                         .font(.title3)
                         .bold()
                     
                     VStack(spacing: 8) {
-                        Text(String(format: "%.2f kg", spatialWeight))
+                        Text(viewModel.calculatedWeight)
                             .font(.largeTitle.bold())
                         
                         Divider()
@@ -54,9 +49,9 @@ struct SpatialWeighingView: View {
                             .overlay(Rectangle())
                             
                         LazyVGrid(columns: columns, spacing: 8) {
-                            ForEach(planets.dropFirst()) { planet in
+                            ForEach(PlanetService.all) { planet in
                                 ZStack {
-                                    if selectedPlanet.id == planet.id {
+                                    if viewModel.selectedPlanet.id == planet.id {
                                         RoundedRectangle(cornerRadius: 8)
                                             .stroke(.primary, lineWidth: 1)
                                             .frame(width: 80, height: 74)
@@ -64,7 +59,7 @@ struct SpatialWeighingView: View {
                                     }
                                     
                                     Button {
-                                        selectedPlanet = planet
+                                        viewModel.selectedPlanet = planet
                                     } label: {
                                         Image(planet.image)
                                             .resizable()

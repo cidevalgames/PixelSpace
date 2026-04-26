@@ -10,8 +10,6 @@ import SwiftUI
 struct SolarSystemDetailView: View {
     var planet: Planet
     
-    @State private var isModalPresented: Bool = true
-    
     var body: some View {
         ZStack(alignment: .top) {
             Image("stars")
@@ -40,7 +38,7 @@ struct SolarSystemDetailView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(32)
-                .background(planet.color)
+                .background(Color(hex: planet.color))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             }
         }
@@ -49,5 +47,5 @@ struct SolarSystemDetailView: View {
 }
 
 #Preview {
-    SolarSystemDetailView(planet: planets[0])
+    SolarSystemDetailView(planet: PlanetService.all[0])
 }

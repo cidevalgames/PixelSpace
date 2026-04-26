@@ -33,5 +33,5 @@ struct RocketCard: View {
 }
 
 #Preview {
-    RocketCard(rocketShip: rocketShips[0])
+    RocketCard(rocketShip: RocketShipService.all[0])
 }

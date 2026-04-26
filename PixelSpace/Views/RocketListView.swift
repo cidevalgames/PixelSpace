@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RocketListView: View {
+    @State private var viewModel: RocketListViewModel = RocketListViewModel()
+    
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -19,7 +21,7 @@ struct RocketListView: View {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 32) {
-                        ForEach(rocketShips) { rocketShip in
+                        ForEach(viewModel.rockets) { rocketShip in
                             RocketCard(rocketShip: rocketShip)
                                 .frame(width: 70, height: 100)
                         }

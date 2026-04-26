@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SolarSystemListView: View {
+    @State private var viewModel: SolarSystemListViewModel = SolarSystemListViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -23,8 +25,13 @@ struct SolarSystemListView: View {
                 
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 64) {
-                        ForEach(planets) { planet in
-                            PlanetCard(planet: planet)
+                        ForEach(viewModel.planets) { planet in
+                            NavigationLink {
+                                SolarSystemDetailView(planet: planet)
+                            } label: {
+                                PlanetCard(planet: planet)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding(.horizontal, 64)
