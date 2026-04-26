@@ -22,24 +22,24 @@ struct AstronautCard: View {
                     
                     VStack(alignment: .leading) {
                         Text(astronaut.name)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                             .font(.system(size: 16, weight: .bold))
                         
                         Text(astronaut.role)
                         
                         Text(astronaut.nationality)
-                            
                     }
-                    .foregroundStyle(Color(hex: 0x999999))
+                    .foregroundStyle(.secondary)
                     .font(.system(size: 15, weight: .bold))
                     .italic()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(6)
-                .background(.white.opacity(0.2))
+                .background(.primary.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+            .buttonStyle(PlainButtonStyle())
         }
     }
 }

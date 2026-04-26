@@ -19,14 +19,15 @@ struct RocketCard: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 52)
+                    .foregroundStyle(Color(uiColor: .systemBackground))
                 
                 Text(rocketShip.name)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(Color(uiColor: .systemBackground))
                     .font(.system(size: 12, weight: .bold))
             }
         }
         .frame(maxWidth: 70, maxHeight: 100)
-        .background(.white)
+        .background(.primary)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

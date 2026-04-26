@@ -14,7 +14,7 @@ struct SolarSystemListView: View {
                 Text(
                     "Explore le système solaire, touche un astre pour en savoir plus."
                 )
-                .foregroundStyle(Color(hex: 0x999999))
+                .foregroundStyle(.secondary)
                 .fontWeight(.regular)
                 .font(.system(size: 20))
                 .frame(width: 257, height: 72)

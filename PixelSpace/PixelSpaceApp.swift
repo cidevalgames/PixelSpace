@@ -12,6 +12,7 @@ struct PixelSpaceApp: App {
     var body: some Scene {
         WindowGroup {
             LandingScreenView()
+                .preferredColorScheme(.dark)
         }
     }
 }

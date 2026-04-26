@@ -21,16 +21,16 @@ struct RocketDetailView: View {
                         .frame(width: 132, height: 27)
                     
                     Text(rocketShip.name)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(uiColor: .systemBackground))
                         .font(.system(size: 16, weight: .bold))
                     
                     Text(rocketShip.description)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(uiColor: .systemBackground))
                         .font(.system(size: 12))
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 16)
-                .background(.white)
+                .background(.primary)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 
                 ForEach(rocketShip.astronauts) { astronaut in

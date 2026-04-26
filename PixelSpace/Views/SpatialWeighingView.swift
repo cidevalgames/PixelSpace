@@ -10,9 +10,8 @@ import SwiftUI
 struct SpatialWeighingView: View {
     @State var weight: Double = 0.0
     @State var selectedPlanet: Planet = planets[1]
-    @State var spatialWeight: Double = 0
     
-    func getSpatialWeight(selectedPlanet: Planet, weight: Double) -> Double {
+    var spatialWeight: Double {
         return weight * (selectedPlanet.gravity / 9.81)
     }
     
@@ -29,7 +28,7 @@ struct SpatialWeighingView: View {
                     Text(
                         "Calcule ton poids en fonction de la planète ciblée !"
                     )
-                    .foregroundStyle(Color(hex: 0x999999))
+                    .foregroundStyle(.secondary)
                     .fontWeight(.regular)
                     .font(.system(size: 20))
                     .frame(width: 290, height: 72)
@@ -37,12 +36,9 @@ struct SpatialWeighingView: View {
                     TextField("Entre ton poids en kg...", value: $weight, format: .number)
                         .frame(height: 64)
                         .padding(.horizontal, 8)
-                        .background(RoundedRectangle(cornerRadius: 12).stroke(.white, lineWidth: 1))
+                        .background(RoundedRectangle(cornerRadius: 12).stroke(.primary, lineWidth: 1))
                         .keyboardType(.decimalPad)
                         .font(.system(size: 20, weight: .bold))
-                        .onChange(of: weight) { oldValue, newValue in
-                            spatialWeight = getSpatialWeight(selectedPlanet: selectedPlanet, weight: weight)
-                        }
                     
                     Text("Ton poids sur \(selectedPlanet.name) :")
                         .font(.system(size: 20, weight: .bold))
@@ -52,7 +48,7 @@ struct SpatialWeighingView: View {
                             .font(.system(size: 32, weight: .bold))
                         
                         Divider()
-                            .background(.white)
+                            .background(.primary)
                             .frame(width: 142, height: 1)
                             .overlay(Rectangle())
                             
@@ -61,14 +57,13 @@ struct SpatialWeighingView: View {
                                 ZStack {
                                     if selectedPlanet.id == planet.id {
                                         RoundedRectangle(cornerRadius: 8)
-                                            .stroke(.white, lineWidth: 1)
+                                            .stroke(.primary, lineWidth: 1)
                                             .frame(width: 80, height: 74)
                                             
                                     }
                                     
                                     Button {
                                         selectedPlanet = planet
-                                        spatialWeight = getSpatialWeight(selectedPlanet: selectedPlanet, weight: weight)
                                     } label: {
                                         Image(planet.image)
                                             .resizable()

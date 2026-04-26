@@ -17,13 +17,13 @@ struct AstronautDetailView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(astronaut.name)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(uiColor: .systemBackground))
                         .font(.system(size: 24, weight: .bold))
                     
                     HStack {
                         Image(systemName: "calendar.circle.fill")
                             .font(.system(size: 29))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text("\(astronaut.birthDate) (\(astronaut.birthLocation))")
                             .bold()
@@ -32,7 +32,7 @@ struct AstronautDetailView: View {
                     HStack {
                         Image(systemName: "medal.fill")
                             .font(.system(size: 29))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text(astronaut.job)
                             .bold()
@@ -41,13 +41,13 @@ struct AstronautDetailView: View {
                     HStack {
                         Image(systemName: "list.bullet.clipboard.fill")
                             .font(.system(size: 29))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text("Missions : \(astronaut.missions)")
                             .bold()
                     }
                 }
-                .foregroundStyle(Color(hex: 0x999999))
+                .foregroundStyle(.secondary)
                 .font(.system(size: 12))
                 .padding(60)
                 .fixedSize(horizontal: false, vertical: true)
@@ -65,8 +65,8 @@ struct AstronautDetailView: View {
             }
             .frame(maxWidth: .infinity)
             .frame(height: 717)
-            .background(.white)
-            .foregroundStyle(.black)
+            .foregroundStyle(Color(uiColor: .systemBackground))
+            .background(.primary)
             .clipShape(RoundedRectangle(cornerRadius: 20))
         }
         .ignoresSafeArea()
