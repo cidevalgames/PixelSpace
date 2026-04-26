@@ -19,14 +19,15 @@ struct RocketDetailView: View {
                         .frame(width: 27, height: 132)
                         .rotationEffect(.degrees(90))
                         .frame(width: 132, height: 27)
+                        .foregroundStyle(Color(uiColor: .systemBackground))
                     
                     Text(rocketShip.name)
                         .foregroundStyle(Color(uiColor: .systemBackground))
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.callout.bold())
                     
                     Text(rocketShip.description)
                         .foregroundStyle(Color(uiColor: .systemBackground))
-                        .font(.system(size: 12))
+                        .font(.caption)
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 16)

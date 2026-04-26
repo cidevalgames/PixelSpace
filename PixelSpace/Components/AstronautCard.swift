@@ -23,14 +23,15 @@ struct AstronautCard: View {
                     VStack(alignment: .leading) {
                         Text(astronaut.name)
                             .foregroundStyle(.primary)
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.callout.bold())
+                            
                         
                         Text(astronaut.role)
                         
                         Text(astronaut.nationality)
                     }
                     .foregroundStyle(.secondary)
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.subheadline.bold())
                     .italic()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }

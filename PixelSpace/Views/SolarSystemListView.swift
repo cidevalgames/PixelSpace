@@ -14,9 +14,10 @@ struct SolarSystemListView: View {
                 Text(
                     "Explore le système solaire, touche un astre pour en savoir plus."
                 )
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundStyle(.secondary)
                 .fontWeight(.regular)
-                .font(.system(size: 20))
+                .font(.title3)
                 .frame(width: 257, height: 72)
                 .padding(.horizontal, 6)
                 

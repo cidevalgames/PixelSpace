@@ -17,11 +17,11 @@ struct PlanetCard: View {
             ZStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(planet.name)
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.title2.bold())
                         .foregroundStyle(.black)
                     
                     Text(planet.summary)
-                        .font(.system(size: 12, weight: .regular))
+                        .font(.caption)
                         .foregroundStyle(.black)
                         .multilineTextAlignment(.leading)
                 }
@@ -37,7 +37,7 @@ struct PlanetCard: View {
                         
                         Image(systemName: "arrow.right")
                             .foregroundStyle(.white)
-                            .font(.system(size: 24))
+                            .font(.title2)
                     }
                     .frame(width: 56, height: 56)
                     .offset(x: 28, y: 28)                }

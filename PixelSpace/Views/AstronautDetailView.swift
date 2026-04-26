@@ -18,37 +18,34 @@ struct AstronautDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(astronaut.name)
                         .foregroundStyle(Color(uiColor: .systemBackground))
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.title2)
                     
                     HStack {
                         Image(systemName: "calendar.circle.fill")
-                            .font(.system(size: 29))
+                            .font(.title)
                             .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text("\(astronaut.birthDate) (\(astronaut.birthLocation))")
-                            .bold()
                     }
                     
                     HStack {
                         Image(systemName: "medal.fill")
-                            .font(.system(size: 29))
+                            .font(.title)
                             .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text(astronaut.job)
-                            .bold()
                     }
                     
                     HStack {
                         Image(systemName: "list.bullet.clipboard.fill")
-                            .font(.system(size: 29))
+                            .font(.title)
                             .foregroundStyle(Color(uiColor: .systemBackground))
                             
                         Text("Missions : \(astronaut.missions)")
-                            .bold()
                     }
                 }
                 .foregroundStyle(.secondary)
-                .font(.system(size: 12))
+                .font(.caption)
                 .padding(60)
                 .fixedSize(horizontal: false, vertical: true)
                 
@@ -59,7 +56,7 @@ struct AstronautDetailView: View {
                         .frame(height: 151)
                         
                     Text(astronaut.description)
-                        .font(.system(size: 12, weight: .bold))
+                        .font(.caption)
                 }
                 .padding(.horizontal, 46)
             }
@@ -68,6 +65,7 @@ struct AstronautDetailView: View {
             .foregroundStyle(Color(uiColor: .systemBackground))
             .background(.primary)
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            .bold()
         }
         .ignoresSafeArea()
     }

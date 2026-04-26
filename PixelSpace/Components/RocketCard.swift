@@ -23,7 +23,7 @@ struct RocketCard: View {
                 
                 Text(rocketShip.name)
                     .foregroundStyle(Color(uiColor: .systemBackground))
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.caption.bold())
             }
         }
         .frame(maxWidth: 70, maxHeight: 100)

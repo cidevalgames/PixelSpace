@@ -30,7 +30,7 @@ struct SpatialWeighingView: View {
                     )
                     .foregroundStyle(.secondary)
                     .fontWeight(.regular)
-                    .font(.system(size: 20))
+                    .font(.title3)
                     .frame(width: 290, height: 72)
                     
                     TextField("Entre ton poids en kg...", value: $weight, format: .number)
@@ -38,14 +38,15 @@ struct SpatialWeighingView: View {
                         .padding(.horizontal, 8)
                         .background(RoundedRectangle(cornerRadius: 12).stroke(.primary, lineWidth: 1))
                         .keyboardType(.decimalPad)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.title3.bold())
                     
                     Text("Ton poids sur \(selectedPlanet.name) :")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.title3)
+                        .bold()
                     
                     VStack(spacing: 8) {
                         Text(String(format: "%.2f kg", spatialWeight))
-                            .font(.system(size: 32, weight: .bold))
+                            .font(.largeTitle.bold())
                         
                         Divider()
                             .background(.primary)

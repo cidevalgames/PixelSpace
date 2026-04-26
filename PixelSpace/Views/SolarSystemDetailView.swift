@@ -26,13 +26,13 @@ struct SolarSystemDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(planet.name)
-                        .font(.system(size: 36, weight: .bold))
+                        .font(.largeTitle.bold())
                         .foregroundStyle(.black)
                     
                     ForEach(planet.text, id: \.self) { text in
                         Text(text)
                             .foregroundStyle(.black)
-                            .font(.system(size: 12, weight: .regular))
+                            .font(.caption)
                             .padding(.vertical, 4)
                     }
                     
